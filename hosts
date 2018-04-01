@@ -1,2 +1,5 @@
 [local]
-localhost ansible_connection=local
+localhost ansible_connection=local host_var_example="This is `localhost' host."
+
+[local:vars]
+group_var_example="This is `local' group."
