@@ -2,14 +2,18 @@
   debug:
     var: hostvars[inventory_hostname][item]
   when: >-
-    not(
-      item in (
-        'groups',
-        'module_setup',
-        'omit',
-        'playbook_dir'
-      )
-    ) and
-    not(item | match("^ansible_")) and
-    not(item | match("^inventory_"))
+    (dump_hostvars_show_magic | default(false)) or
+    item in (dump_hostvars_show_magic_list | default([])) or
+    (
+      not(
+        item in (
+          'groups',
+          'module_setup',
+          'omit',
+          'playbook_dir'
+        )
+      ) and
+      not(item | match("^ansible_")) and
+      not(item | match("^inventory_"))
+    )
   with_items: "{{ hostvars[inventory_hostname] | sort }}"

@@ -1,0 +1,2 @@
+dump_hostvars_show_magic: false
+dump_hostvars_show_magic_list: [ 'playbook_dir' ]
