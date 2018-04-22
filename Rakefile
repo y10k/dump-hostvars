@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 task :default do
-  sh "ansible-playbook -i hosts dump_vars.yml"
+  sh "ansible-playbook -i hosts test.yml"
 end
 
 # Local Variables:
