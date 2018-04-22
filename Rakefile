@@ -1,6 +1,9 @@
 # -*- coding: utf-8 -*-
 
-task :default do
+task :default => [ :dump ]
+
+desc 'dump hostvars'
+task :dump do
   sh "ansible-playbook -i hosts test.yml"
 end
 
